@@ -1,9 +1,20 @@
-# Multithreaded-Elevator
+# Elevator simulation
 
-This is a multithreaded program which simulates passengers and elevator travel. There is one thread per elevator, and one thread per passenger. There is a fixed number of passengers, that embark on a number of trips each. These threads interact with each other through a central elevator controller.
+The code produces an error upon compilation(gcc filename.c -o filename -lpthread).  But ignore that error and just run the code. You just have to trust us; it runs.
+
+Simulates 2 elevators to take passengers up and down an 8-storeyed building.
+The user inputs the number of people who want to use the elevator at that particular moment in time and also inputs the floor number where each passenger wants to go.
+The elevator waits for 2 seconds before moving to another floor.
+There is only one trip allowed per passenger.
+
+## Libraries used.
+The <pthread.h> library was used.
 
 ## COMPILING
 gcc -o main main.c -lpthread
+
+
+# REPORT
 
 ## LEADERSHIP: 
 The group agreed on collective leadership, and there was no need for a team leader. We agreed on the dates to meet and the execution processing.
