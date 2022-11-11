@@ -109,7 +109,7 @@ void userInput(){
     pthread_mutex_lock(&lock); // lock the mutex
     printf("Number of people in the lobby area waiting:1 => %d \n", additional_passengers); // print the number of additional passengers
     for(int i = 0; i < additional_passengers; i++){ // loop through the additional passengers
-      printf( "\n Which floor is user %d going to?\n", i+1); // print the message
+      printf( "\n Which floor is user %dA going to?\n", i+1); // print the message
       scanf("%d", &users[i].destination_floor); // scan the destination floor
 
       //make sure that the floor choice is not greater 8 floors
@@ -190,29 +190,13 @@ void elevator_movement(int elevator){
   }
 }
 
-
-int main(int argc, char** argv){ // main function
-
-  input_Elevatorpassengers(maximum_capacity); // call the input_Elevatorpassengers function
-
-  // Creating a thread for each user
-  pthread_t user_t;
-  for(size_t i=0;i < 1;i++)  { // loop through the maximum capacity
-    pthread_create(&user_t,NULL,userInput,(void*)i); // create the thread
-  }
-
-  init_elevator(); // call the init_elevator function
-
-  pthread_t elevator_t[2]; // create a thread for the elevator
-  for(size_t i=0;i<1;i++) { // loop through the elevator
-    pthread_create(&elevator_t[i],NULL,elevator_movement,(void*)i); // create a thread for the elevator
-  }
-
-  pthread_join(user_t, NULL); // join the user thread
-  for(int i = 0; i < 2; i++) // loop through the elevator
-    {
-      pthread_join(elevator_t[i], NULL); // join the elevator thread
-    }
+// function to control the elevator 
+int main (int argc, char** argv){ // main function
+    input_onboardingPeople(elevator_maximum_capacity); // call the input onboarding people function
+    pthread_t thread1, thread2; // create the threads
+    pthread_create(&thread1, NULL, userInput, NULL); // create the thread 1
+    pthread_create(&thread2, NULL, elevator_movement, NULL); // create the thread 2
+    pthread_join(thread1, NULL); // join the thread 1
+    pthread_join(thread2, NULL); // join the thread 2
+    return 0;
 }
-
-
