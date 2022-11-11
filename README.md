@@ -21,6 +21,8 @@ We agreed that it would be easier to write the code for the programme if we firs
 
 For the pseudocode, we discussed the necessary functions, these are the functions that our programme would contain. These functions are named so that it is easy for anyone to understand what they are used for because it is group work.
 
+## ROADBLOCKS
+Although our code runs perfectly well, we encountered 2 pointer warnings which we were unable to resolve before the deadline
 
 ## GitHub: 
 We created a GitHub repository where the collaboration was done. We had 3 different branches for each team member and one main branch. We did this to avoid any code clash so that whatever is being pushed to the main branch is what we(the whole group) agreed on.
